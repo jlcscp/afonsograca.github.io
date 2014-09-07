@@ -40,7 +40,7 @@ $(document).ready(function(event) {
 	};
 	$(window).on('resize', function(){
    		setViewportSizes();
-	});
+	}).trigger('resize');
 
 	/*HASH CATCHING DEFINITION*/
 	$(window).on('hashchange', function(event){
