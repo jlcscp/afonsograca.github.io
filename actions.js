@@ -34,9 +34,10 @@ $(document).ready(function(event) {
 	var setViewportSizes = function(){
 		$('.skills-main-container').css({'left' : $('.skills-main-container li').outerWidth()*(-1)});
     	$('.work-main-container').css({'left' : $('.work-main-container li').outerWidth()*(-1)});
-    	$("#background section").css({'top': (currentSection-1)*100*(-1) +"vh"});
+		$("#background section").each(function(){
+			$(this).css({top : (currentSection-parseInt($(this).attr("tabindex")))*100*(-1)+'vh'});
+		});
 	};
-
 	$(window).on('resize', function(){
    		setViewportSizes();
 	});
@@ -211,6 +212,43 @@ $(document).ready(function(event) {
 		}
 	};
 
+	$("section").on('mousewheel DOMMouseScroll wheel', function(event){
+		if(!isAnimated){
+			isAnimated = true;
+			var delta;
+			if(event.originalEvent.wheelDelta != 0){
+				delta = event.originalEvent.wheelDelta;
+				if(Math.abs(delta) > 40){
+					delta /= 40;
+				}
+				if(delta > 0 ){
+					scrollUp($(this), delta);
+				}
+				else if(delta < 0 ){
+					scrollDown($(this), delta);
+				}
+			/*	if(delta > 0 && delta > previousDelta){
+					scrollUp($(this), delta);
+				}
+				else if(delta < 0 && delta < previousDelta){
+					scrollDown($(this), delta);
+				}*/
+			}else {
+				delta = event.originalEvent.detail;
+				if(Math.abs(delta) > 40){
+					delta /= 40;
+				}
+
+				if(delta < 0 && delta < previousDelta){
+					scrollUp($(this), delta);
+				}
+				else if(delta > 0 && delta > previousDelta){
+					scrollDown($(this), delta);
+				}
+			}
+		}
+	});
+
 	/*CAROUSEL NAVIGATION*/
 	$('.action-arrow-left').click(function(event){
 		if(!isAnimated){
@@ -251,6 +289,7 @@ $(document).ready(function(event) {
 	});
 
 	/*INITIAL STATE OF THE MENU BAR*/
+	$("#background").css({overflow : "hidden"});
 	selectedMenuButton();
 	menuStyleSetter(currentSection);
 	setCarousels();
