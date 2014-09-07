@@ -177,7 +177,7 @@ $(document).ready(function(event) {
 	});
 
 	/*SCROLLING*/
-	var scrollUp = function(object, delta){
+	/*var scrollUp = function(object, delta){
 		var sectionIndex = parseInt(object.closest("section").attr("tabindex"));
 
 		if (sectionIndex != 1) {
@@ -227,12 +227,12 @@ $(document).ready(function(event) {
 				else if(delta < 0 ){
 					scrollDown($(this), delta);
 				}
-			/*	if(delta > 0 && delta > previousDelta){
+				if(delta > 0 && delta > previousDelta){
 					scrollUp($(this), delta);
 				}
 				else if(delta < 0 && delta < previousDelta){
 					scrollDown($(this), delta);
-				}*/
+				}
 			}else {
 				delta = event.originalEvent.detail;
 				if(Math.abs(delta) > 40){
@@ -247,7 +247,7 @@ $(document).ready(function(event) {
 				}
 			}
 		}
-	});
+	});*/
 
 	/*CAROUSEL NAVIGATION*/
 	$('.action-arrow-left').click(function(event){
