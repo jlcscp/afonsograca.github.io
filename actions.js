@@ -151,8 +151,8 @@ $(document).ready(function(event) {
 
 	/*ARROW BUTTONS*/
 	$(".action-arrow-up").click(function(event){
-		if(!isAnimated)
-			isAnimated =true;
+		if(!isAnimated){
+			isAnimated = true;
 			currentSection--;
 
 			menuStyleSetter(currentSection);
@@ -160,12 +160,13 @@ $(document).ready(function(event) {
 				isAnimated = false;
 				location.hash = getMenuHash(currentSection);
 			});
+		}
 		event.preventDefault();
 	});
 
 	$(".action-arrow-down").click(function(event){
-		if(!isAnimated)
-			isAnimated =true;
+		if(!isAnimated){
+			isAnimated = true;
 			currentSection++;
 
 			menuStyleSetter(currentSection);
@@ -173,34 +174,61 @@ $(document).ready(function(event) {
 				isAnimated = false;
 				location.hash = getMenuHash(currentSection);
 			});
+		}
 		event.preventDefault();
 	});
 
 	/*SCROLLING*/
-	/*var scrollUp = function(object, delta){
-		var sectionIndex = parseInt(object.closest("section").attr("tabindex"));
+	var verticalScroll = function(delta){
+		antePenultimateDelta = penultimateDelta;
+		penultimateDelta = currentDelta;
+		currentDelta = delta;
+		if(!isAnimated){
+			isAnimated = true;
 
-		if (sectionIndex != 1) {
-		    $("#background section").animate({top: "+=100vh"},700,"swing", function() {
-				var sectionId = $("section.main[tabindex='"+(sectionIndex-1)+"']").attr("id");
-				sleep(300);
+			if(currentDelta > 0 && (penultimateDelta < 0 ||
+				(currentDelta > penultimateDelta && penultimateDelta == antePenultimateDelta) ||
+				(currentDelta > penultimateDelta && penultimateDelta < antePenultimateDelta))){
+				scrollUp();
+			}
+			else if(currentDelta < 0 && (penultimateDelta > 0 ||
+					(currentDelta < penultimateDelta && penultimateDelta == antePenultimateDelta) ||
+					(currentDelta < penultimateDelta && penultimateDelta > antePenultimateDelta))){
+				scrollDown();
+			}
+			else{
+				isAnimated = false;
+			}
+		}
+	}
+
+	var scrollUp = function(){
+
+		if (currentSection > 1) {
+			currentSection--;
+			menuStyleSetter(currentSection);
+		    $("#background section").animate({top: "+=100vh"},700,"swing").promise().done(function() {
+				location.hash = getMenuHash(currentSection);
 				isAnimated = false;
 			});
 		}
-		previousDelta = delta;
+		else {
+			isAnimated = false;
+		}
 	};
-	var scrollDown = function(object, delta){
-		var sectionIndex = parseInt(object.closest("section").attr("tabindex"));
 
-		if(sectionIndex != 4){
-			$("#background section").animate({top: "-=100vh"},700,"swing", function() {
-				var sectionId = $("section.main[tabindex='"+(sectionIndex+1)+"']").attr("id");
-				sleep(400);
-				previousDelta = delta;
+	var scrollDown = function(){
+		if(currentSection < 4){
+			currentSection++;
+			menuStyleSetter(currentSection);
+			$("#background section").animate({top: "-=100vh"},700,"swing").promise().done(function() {
+				location.hash = getMenuHash(currentSection);
 				isAnimated = false;
 			});
 		}
-		previousDelta = delta;
+		else {
+			isAnimated = false;
+		}
 	};
 
 	var sleep = function(mili){
@@ -212,42 +240,21 @@ $(document).ready(function(event) {
 		}
 	};
 
-	$("section").on('mousewheel DOMMouseScroll wheel', function(event){
-		if(!isAnimated){
-			isAnimated = true;
-			var delta;
-			if(event.originalEvent.wheelDelta != 0){
-				delta = event.originalEvent.wheelDelta;
-				if(Math.abs(delta) > 40){
-					delta /= 40;
-				}
-				if(delta > 0 ){
-					scrollUp($(this), delta);
-				}
-				else if(delta < 0 ){
-					scrollDown($(this), delta);
-				}
-				if(delta > 0 && delta > previousDelta){
-					scrollUp($(this), delta);
-				}
-				else if(delta < 0 && delta < previousDelta){
-					scrollDown($(this), delta);
-				}
-			}else {
-				delta = event.originalEvent.detail;
-				if(Math.abs(delta) > 40){
-					delta /= 40;
-				}
 
-				if(delta < 0 && delta < previousDelta){
-					scrollUp($(this), delta);
-				}
-				else if(delta > 0 && delta > previousDelta){
-					scrollDown($(this), delta);
-				}
-			}
+
+	$(window).on('wheel mousewheel DOMMouseScroll MozMousePixelScroll', function(event){
+		console.log(-event.originalEvent.deltaY);
+		event.preventDefault();
+		var delta = event.originalEvent.wheelDeltaX !== undefined? event.originalEvent.wheelDeltaX : -event.originalEvent.deltaX;
+		if(delta != 0){
+
 		}
-	});*/
+		else{
+			delta = event.originalEvent.wheelDeltaY !== undefined? event.originalEvent.wheelDeltaY :
+					event.originalEvent.deltaY !== undefined? -event.originalEvent.deltaY : -event.originalEvent.detail;
+			verticalScroll(delta);
+		}
+	});
 
 	/*CAROUSEL NAVIGATION*/
 	$('.action-arrow-left').click(function(event){
