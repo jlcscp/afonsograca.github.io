@@ -1,5 +1,6 @@
 $(document).ready(function(event) {
-	var previousDelta = 0, isAnimated = false, currentSection = 1, initialSection;
+	var antePenultimateDelta = 0, penultimateDelta = 0, currentDelta = 0;
+	var isAnimated = false, currentSection = 1, initialSection;
 
 	/*ANITIALISING FUNCTIONS*/
 	var selectedMenuButton = function(){
