@@ -244,10 +244,9 @@ $(document).ready(function(event) {
 
 
 	$(window).on('wheel mousewheel DOMMouseScroll MozMousePixelScroll', function(event){
-		console.log(-event.originalEvent.deltaY);
 		event.preventDefault();
 		var time = new Date().getTime();
-		if((time - lastScrollEvent) > 1000){
+		if((time - lastScrollEvent) > 700){
 			penultimateDelta = 0;
 			currentDelta = 0;
 		}
