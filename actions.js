@@ -188,12 +188,12 @@ $(document).ready(function(event) {
 			isAnimated = true;
 
 			if(currentDelta > 0 && (penultimateDelta < 0 ||
-				(currentDelta > penultimateDelta && penultimateDelta == antePenultimateDelta && penultimateDelta == 0) ||
+				(currentDelta > penultimateDelta && penultimateDelta == antePenultimateDelta) ||
 				(currentDelta > penultimateDelta && penultimateDelta < antePenultimateDelta))){
 				scrollUp();
 			}
 			else if(currentDelta < 0 && (penultimateDelta > 0 ||
-					(currentDelta < penultimateDelta && penultimateDelta == antePenultimateDelta && penultimateDelta == 0) ||
+					(currentDelta < penultimateDelta && penultimateDelta == antePenultimateDelta) ||
 					(currentDelta < penultimateDelta && penultimateDelta > antePenultimateDelta))){
 				scrollDown();
 			}
@@ -247,7 +247,7 @@ $(document).ready(function(event) {
 		console.log(-event.originalEvent.deltaY);
 		event.preventDefault();
 		var time = new Date().getTime();
-		if((time - lastScrollEvent) > 500){
+		if((time - lastScrollEvent) > 1000){
 			penultimateDelta = 0;
 			currentDelta = 0;
 		}
