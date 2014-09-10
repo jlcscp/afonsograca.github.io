@@ -188,12 +188,12 @@ $(document).ready(function(event) {
 			isAnimated = true;
 
 			if(currentDelta > 0 && (penultimateDelta < 0 ||
-				(currentDelta > penultimateDelta && penultimateDelta == antePenultimateDelta == 0) ||
+				(currentDelta > penultimateDelta && penultimateDelta == antePenultimateDelta && penultimateDelta == 0) ||
 				(currentDelta > penultimateDelta && penultimateDelta < antePenultimateDelta))){
 				scrollUp();
 			}
 			else if(currentDelta < 0 && (penultimateDelta > 0 ||
-					(currentDelta < penultimateDelta && penultimateDelta == antePenultimateDelta == 0) ||
+					(currentDelta < penultimateDelta && penultimateDelta == antePenultimateDelta && penultimateDelta == 0) ||
 					(currentDelta < penultimateDelta && penultimateDelta > antePenultimateDelta))){
 				scrollDown();
 			}
