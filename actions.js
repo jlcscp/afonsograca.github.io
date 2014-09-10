@@ -1,5 +1,5 @@
 $(document).ready(function(event) {
-	var antePenultimateDelta = 0, penultimateDelta = 0, currentDelta = 0;
+	var antePenultimateDelta = 0, penultimateDelta = 0, currentDelta = 0, lastScrollEvent = 0;
 	var isAnimated = false, currentSection = 1, initialSection;
 
 	/*ANITIALISING FUNCTIONS*/
@@ -188,13 +188,13 @@ $(document).ready(function(event) {
 			isAnimated = true;
 
 			if(currentDelta > 0 && (penultimateDelta < 0 ||
-				(currentDelta >= penultimateDelta && penultimateDelta == antePenultimateDelta) ||
-				(currentDelta >= penultimateDelta && penultimateDelta < antePenultimateDelta))){
+				(currentDelta > penultimateDelta && penultimateDelta == antePenultimateDelta) ||
+				(currentDelta > penultimateDelta && penultimateDelta < antePenultimateDelta))){
 				scrollUp();
 			}
 			else if(currentDelta < 0 && (penultimateDelta > 0 ||
-					(currentDelta <= penultimateDelta && penultimateDelta == antePenultimateDelta) ||
-					(currentDelta <= penultimateDelta && penultimateDelta > antePenultimateDelta))){
+					(currentDelta < penultimateDelta && penultimateDelta == antePenultimateDelta) ||
+					(currentDelta < penultimateDelta && penultimateDelta > antePenultimateDelta))){
 				scrollDown();
 			}
 			else{
@@ -246,6 +246,12 @@ $(document).ready(function(event) {
 	$(window).on('wheel mousewheel DOMMouseScroll MozMousePixelScroll', function(event){
 		console.log(-event.originalEvent.deltaY);
 		event.preventDefault();
+		var time = new Date().getTime();
+		if((time - lastScrollEvent) > 500){
+			penultimateDelta = 0;
+			currentDelta = 0;
+		}
+		lastScrollEvent = time;
 		var delta = event.originalEvent.wheelDeltaX !== undefined? event.originalEvent.wheelDeltaX : -event.originalEvent.deltaX;
 		if(delta != 0){
 
