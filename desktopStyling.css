@@ -464,3 +464,15 @@ span{
 	font-size: 3vmin;
 	margin: 2vh 0 0 2vw;
 }
+
+@media handheld and (orientation:landscape){
+	#header{
+		position: fixed;
+		background: rgba(0,0,0,.85);
+		z-index: 10;
+		right: 0;
+		height:100%;
+		width:10%;
+		border:none;
+	}
+}
