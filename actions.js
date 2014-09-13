@@ -1,6 +1,7 @@
 $(document).ready(function(event) {
 	var antePenultimateDelta = 0, penultimateDelta = 0, currentDelta = 0, lastScrollEvent = 0;
 	var isAnimated = false, currentSection = 1, initialSection;
+	var verticalTouchStart = 0;
 
 	/*ANITIALISING FUNCTIONS*/
 	var selectedMenuButton = function(){
@@ -36,7 +37,9 @@ $(document).ready(function(event) {
 		$('.skills-main-container').css({'left' : $('.skills-main-container li').outerWidth()*(-1)});
     	$('.work-main-container').css({'left' : $('.work-main-container li').outerWidth()*(-1)});
 		$("#background section").each(function(){
-			$(this).css({top : (currentSection-parseInt($(this).attr("tabindex")))*100*(-1)+'vh'});
+			var offset = (currentSection-parseInt($(this).attr("tabindex")))*100*(-1);
+			console.log(offset);
+			$(this).css({top : offset +'vh'});
 		});
 	};
 	$(window).on('resize', function(){
@@ -242,7 +245,7 @@ $(document).ready(function(event) {
 	};
 
 
-
+	/*DETECT SCROLL IN DESKTOPS*/
 	$(window).on('wheel mousewheel DOMMouseScroll MozMousePixelScroll', function(event){
 		event.preventDefault();
 		var time = new Date().getTime();
@@ -261,6 +264,28 @@ $(document).ready(function(event) {
 			verticalScroll(delta);
 		}
 	});
+
+	/*DETECT SCROLL IN MOBILE*/
+	$(window).on('touchstart', function(event){
+		if(!isAnimated){
+			verticalTouchStart = event.originalEvent.touches[0].clientY;
+		}
+		event.preventDefault();
+	});
+
+	$(window).on('touchend', function(event){
+		if(!isAnimated){
+			isAnimated = true;
+			if(event.originalEvent.changedTouches[0].clientY < verticalTouchStart){
+				scrollDown();
+			}
+			else {
+				scrollUp();
+			}
+		}
+		event.preventDefault();
+	});
+
 
 	/*CAROUSEL NAVIGATION*/
 	$('.action-arrow-left').click(function(event){
