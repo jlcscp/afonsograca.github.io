@@ -296,6 +296,9 @@ $(document).ready(function(event) {
 					}
 				}
 			}
+			else{
+				isAnimated = false;
+			}
 		}
 		event.preventDefault();
 	});
