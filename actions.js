@@ -2,7 +2,7 @@ $(document).ready(function(event) {
 	var antePenultimateDelta = 0, penultimateDelta = 0, currentDelta = 0, lastScrollEvent = 0;
 	var isAnimated = false, currentSection = 1, initialSection;
 	var isMobile = false;
-	var verticalTouchStart = 0;
+	var verticalTouchStart = 0, horizontalTouchStart = 0;
 
 	/*INITIALISING FUNCTIONS*/
 	var highlightSection = function(location){
@@ -277,6 +277,7 @@ $(document).ready(function(event) {
 	/*DETECT SCROLL IN MOBILE*/
 	$(window).on('touchstart', function(event){
 		if(!isAnimated){
+			verticalTouchStart = event.originalEvent.touches[0].clientX;
 			verticalTouchStart = event.originalEvent.touches[0].clientY;
 		}
 		event.preventDefault();
@@ -285,18 +286,19 @@ $(document).ready(function(event) {
 	$(window).on('touchend', function(event){
 		if(!isAnimated){
 			isAnimated = true;
-			if(Math.abs(event.originalEvent.changedTouches[0].clientY - verticalTouchStart) > 10){
-				if(event.originalEvent.changedTouches[0].clientY < verticalTouchStart){
-					scrollDown();
-				}
-				else {
-					scrollUp();
+			if(Math.abs(event.originalEvent.changedTouches[0].clientY - verticalTouchStart) > Math.abs(event.originalEvent.changedTouches[0].clientX - horizontalTouchStart)){
+				if(Math.abs(event.originalEvent.changedTouches[0].clientY - verticalTouchStart) > 10){
+					if(event.originalEvent.changedTouches[0].clientY < verticalTouchStart){
+						scrollDown();
+					}
+					else {
+						scrollUp();
+					}
 				}
 			}
 		}
 		event.preventDefault();
 	});
-
 
 	/*CAROUSEL NAVIGATION*/
 	$('.action-arrow-left').click(function(event){
