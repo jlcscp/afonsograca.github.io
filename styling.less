@@ -1,5 +1,5 @@
-@defaultFont = "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
-@defaultFontWeight = 200;
+@defaultFont: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+@defaultFontWeight : 200;
 
 @font-face {
     font-family: 'icomoonregular';
@@ -12,20 +12,20 @@
     font-style: normal;
 }
 
-@desktopArrowUp = "\e601";
-@desktopArrowRight = "\e602";
-@desktopArrowDown = "\e600";
-@desktopArrowLeft = "\e603";
+@desktopArrowUp : "\e601";
+@desktopArrowRight : "\e602";
+@desktopArrowDown : "\e600";
+@desktopArrowLeft : "\e603";
 
-@mobileArrowUp = "";
-@mobileArrowRight = "";
-@mobileArrowDown = "";
-@mobileArrowLeft = "";
+@mobileArrowUp : "";
+@mobileArrowRight : "";
+@mobileArrowDown : "";
+@mobileArrowLeft : "";
 
-@defaultArrowUp = @desktopArrowUp;
-@defaultArrowRight = @desktopArrowRight;
-@defaultArrowDown = @desktopArrowDown;
-@defaultArrowLeft = @desktopArrowLeft;
+@defaultArrowUp : @desktopArrowUp;
+@defaultArrowRight : @desktopArrowRight;
+@defaultArrowDown : @desktopArrowDown;
+@defaultArrowLeft : @desktopArrowLeft;
 
 .fontStyling{
 	font-family: @defaultFont;
@@ -68,13 +68,6 @@ span{
 	line-height: 4vmin;
 }
 
-.HeaderStyle{
-	position: fixed;
-	background: rgba(0,0,0,.85);
-	z-index: 10;
-	border:none;
-}
-
 .headerPortraitPosition {
 	width:100vw;
 	height:10vh;
@@ -83,20 +76,27 @@ span{
 .headerLandscapePosition{
 	width:10vw;
 	height:100vh;
+	right: 0;
 }
 
 #header{
-	.HeaderStyle;
-	.headerPortraitPosition;
-}
-.header-orientation{
-	.row-container;
-}
-.header-flex-container {
+	position: fixed;
+	background: rgba(0,0,0,.85);
+	z-index: 10;
+	border:none;
 	.flex-container; 
-	.header-orientation;
-	.space-between-container; 
 	.stretch-container;
+	
+	@media screen, handheld and (orientation: portrait){
+		.headerPortraitPosition;
+		.row-container;
+		.space-between-container;
+	}
+	@media handheld and (orientation: landscape){
+		.headerLandscapePosition;
+		.column-container;
+		.space-around-container;
+	}
 }
 
 .flex-container {
@@ -138,6 +138,17 @@ span{
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
+}
+
+.space-around-container {
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	-webkit-justify-content: space-around;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+	-webkit-align-content: space-around;
+	-ms-flex-line-pack: distribute;
+	align-content: space-around;
 }
 
 .center-container {
@@ -214,6 +225,37 @@ span{
     align-items: stretch;
 }
 
+.standard-flexbox-item {
+	-webkit-box-ordinal-group: 1;
+	    -moz-box-ordinal-group: 1;
+	    -webkit-order: 0;
+	    -ms-flex-order: 0;
+	    order: 0;
+	    -webkit-box-flex: 0;
+	    -moz-box-flex: 0;
+	    -webkit-flex: 0 1 auto;
+	    -ms-flex: 0 1 auto;
+	    flex: 0 1 auto;
+	    -webkit-align-self: auto;
+	    -ms-flex-item-align: auto;
+	    align-self: auto;
+}
+
+.stretch-flexbox-item {
+	-webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+}
 #home-button {
 	-webkit-align-content: center;
     -ms-flex-line-pack: center;
@@ -223,34 +265,46 @@ span{
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    margin-left: 3vw;
-}
-
-#home-button a::before {
-	height: 7vh;
-	width: 7vh;
-	border-radius: 50%;
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	background: url(http://www.gravatar.com/avatar/ae58ee5054b29e04b8317bc36da623ca) no-repeat;
-	background-size: 100% 100%;
-	position: absolute;
-	content: '';
-	left:0;
-}
-
-#home-button a {
-	color: white;
-	text-decoration: none;
-	font-size: 2.35vh;
-	line-height: 7vh;
-	padding-left: 8vh;
 	position:relative;
-	display: none;
-}
-
-#home-button a:hover{
-	text-decoration: underline;
+	
+	@media screen, handheld and (orientation: portrait){
+		margin-left: 3vw;
+	}
+	@media handheld and (orientation: landscape){
+		margin-left: 1vw;
+		height: 20%;
+	}
+	
+	a {
+		color: white;
+		text-decoration: none;
+		font-size: 2.35vh;
+		line-height: 3vh;
+		padding-left: 8vh;
+		display: none;
+		
+		@media screen{
+			FIXME &:hover{
+				text-decoration: underline;
+			}
+		}
+		
+		&::before {
+			height: 7vh;
+			width: 7vh;
+			border-radius: 50%;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			background: url(http://www.gravatar.com/avatar/ae58ee5054b29e04b8317bc36da623ca) no-repeat;
+			background-size: 100% 100%;
+			position: absolute;
+			content: '';
+			left:0;			
+			top:0;
+			bottom:0;
+			margin:auto;
+		}
+	}
 }
 
 #header ul{
@@ -258,21 +312,31 @@ span{
 	margin: 0;
 	padding: 0;
 	list-style: none outside;
-	margin-right: 3vw;
-}
+	.flex-container;
 
-#header ul li {
-}
-
-#header ul li:hover{
-	border-bottom: thin solid rgba(255,255,255,0.9)
-}
-
-#header ul li a {
-	color: white;
-	text-decoration: none;
-	padding: 3.825vh 1vmin;
-	font-size: 2.35vh;
+	@media screen, handheld and (orientation: portrait){
+		margin-right: 3vw;
+	}
+	@media handheld and (orientation: landscape){
+		.column-container;
+	}
+	li {
+		@media screen{
+			&:hover{
+				border-bottom: thin solid rgba(255,255,255,0.9);
+			}
+		}
+		@media handheld {
+		}
+		a {
+			color: white;
+			text-decoration: none;
+			padding: 3.825vh 1vmin;
+			font-size: 2.35vh;
+			width:100%;
+			text-align: center;
+		}
+	}
 }
 
 #background{
@@ -295,11 +359,20 @@ span{
 }
 
 .main-container{
-	height: 88.5vh;
-	width: 90vw;
-	padding-top: 10.5vh;
-	padding-bottom: 1vh;
-	padding-left: 5vw;
+	@media screen, handheld and (orientation: portrait){
+		height: 88.5vh; 
+		width: 90vw;
+		padding-top: 10.5vh;
+		padding-bottom: 1vh;
+		padding-left: 5vw;
+	}
+	@media handheld and (orientation: landscape){
+		height: 98vh;
+		width: 84vw;
+		padding-top: 1vh;
+		padding-bottom: 1vh;
+		padding-left: 3vw;
+	}
 }
 
 .main-container span{
@@ -312,9 +385,14 @@ span{
 	width: 100%;
 }
 
-#home-container{
+#home-container{	
 	padding-top: 40vh;
-	padding-left: 23vw;
+	@media screen, handheld and (orientation: portrait){
+		padding-left: 23vw;
+	}
+	@media handheld and (orientation: landscape){
+		padding-left: 17vw;
+	}
 }
 
 #home{
@@ -374,8 +452,13 @@ span{
 .arrow-bottom {
 	position: absolute;
 	margin-bottom: 2vh;
-	left: 49%;
 	bottom: 0;
+	@media screen, handheld and (orientation: portrait){
+		left: 49%;
+	}
+	@media handheld and (orientation: landscape){
+		left: 44.35%;
+	}
 }
 
 .arrow_top {
@@ -515,15 +598,9 @@ span{
 }
 
 @media handheld and (orientation:landscape){
-	@defaultArrowUp = @mobileArrowUp;
-	@defaultArrowRight = @mobileArrowRight;
-	@defaultArrowDown = @mobileArrowDown;
-	@defaultArrowLeft = @mobileArrowLeft;
-	#header{
-		.HeaderStyle;
-		.headerPortraitPosition;
-	}
-	.header-orientation{
-		.column-container;
-	}
+	@defaultArrowUp : @mobileArrowUp;
+	@defaultArrowRight : @mobileArrowRight;
+	@defaultArrowDown : @mobileArrowDown;
+	@defaultArrowLeft : @mobileArrowLeft;
+
 }

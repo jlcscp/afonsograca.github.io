@@ -1,24 +1,32 @@
 $(document).ready(function(event) {
 	var antePenultimateDelta = 0, penultimateDelta = 0, currentDelta = 0, lastScrollEvent = 0;
 	var isAnimated = false, currentSection = 1, initialSection;
+	var isMobile = false;
 	var verticalTouchStart = 0;
 
-	/*ANITIALISING FUNCTIONS*/
+	/*INITIALISING FUNCTIONS*/
+	var highlightSection = function(location){
+		if(window.orientation == 90 || window.orientation == -90){
+			$('a[href="'+location+'"]').css("border-left","thin solid rgba(255,255,255,0.8)");
+		}
+		else {
+			$('a[href="'+location+'"]').css("border-bottom","thin solid rgba(255,255,255,0.8)");
+		}
+	};
 	var selectedMenuButton = function(){
 		currentSection = getMenuIndex(location.hash);
 
-		$("#header ul li a").css("border-bottom","");
+		$("#header ul li a").css({"border-bottom":"","border-left":""});
 		if(location.hash !== ""){
-			$('a[href="'+location.hash+'"]').css("border-bottom","thin solid rgba(255,255,255,0.8)");
+			highlightSection(location.hash);
 		}
 	};
 
 	var menuStyleSetter = function(current){
-		$("#header ul li a").css("border-bottom","");
-
+		$("#header ul li a").css({"border-bottom":"","border-left":""});
 		if(current != 1){
-			$('a[href="#'+getMenuHash(current)+'"]').css("border-bottom","thin solid rgba(255,255,255,0.8)");
-			$("#home-button a").fadeIn({ duration: 'slow', queue: false });
+			highlightSection('#'+getMenuHash(current));
+			$("#home-button a").fadeIn({ duration: 'slow', queue: false }).css("display","inline-block");;
 		}
 		else{
 			$("#home-button a").fadeOut({ duration: 'slow', queue: false });
@@ -43,8 +51,9 @@ $(document).ready(function(event) {
 		});
 	};
 	$(window).on('resize', function(){
+		$("body").hide().show(0);
    		setViewportSizes();
-	}).trigger('resize');
+	});
 
 	/*HASH CATCHING DEFINITION*/
 	$(window).on('hashchange', function(event){
@@ -276,11 +285,13 @@ $(document).ready(function(event) {
 	$(window).on('touchend', function(event){
 		if(!isAnimated){
 			isAnimated = true;
-			if(event.originalEvent.changedTouches[0].clientY < verticalTouchStart){
-				scrollDown();
-			}
-			else {
-				scrollUp();
+			if(Math.abs(event.originalEvent.changedTouches[0].clientY - verticalTouchStart) > 10){
+				if(event.originalEvent.changedTouches[0].clientY < verticalTouchStart){
+					scrollDown();
+				}
+				else {
+					scrollUp();
+				}
 			}
 		}
 		event.preventDefault();
@@ -328,6 +339,9 @@ $(document).ready(function(event) {
 
 	/*INITIAL STATE OF THE MENU BAR*/
 	$("#background").css({overflow : "hidden"});
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+		isMobile = true;
+	}
 	selectedMenuButton();
 	menuStyleSetter(currentSection);
 	setCarousels();
