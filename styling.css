@@ -84,7 +84,7 @@ span {
   -ms-flex-align: stretch;
   align-items: stretch;
 }
-@media screen, (orientation:portrait) {
+@media screen, (orientation: portrait) {
   #header {
     width: 100vw;
     height: 10vh;
@@ -101,7 +101,7 @@ span {
     justify-content: space-between;
   }
 }
-@media (orientation:landscape) {
+@media (orientation: landscape) {
   #header {
     width: 10vw;
     height: 100vh;
@@ -284,12 +284,12 @@ span {
   align-items: center;
   position: relative;
 }
-@media screen, handheld and (orientation: portrait) {
+@media screen, (orientation: portrait) {
   #home-button {
     margin-left: 3vw;
   }
 }
-@media handheld and (orientation: landscape) {
+@media (orientation: landscape) {
   #home-button {
     margin-left: 1vw;
     height: 20%;
@@ -339,12 +339,12 @@ span {
   display: flex;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
-@media screen, handheld and (orientation: portrait) {
+@media screen, (orientation: portrait) {
   #header ul {
     margin-right: 3vw;
   }
 }
-@media handheld and (orientation: landscape) {
+@media (orientation: landscape) {
   #header ul {
     -webkit-box-direction: normal;
     -moz-box-direction: normal;
@@ -384,7 +384,7 @@ span {
   width: 90vw;
   line-height: 1.4em;
 }
-@media screen, handheld and (orientation: portrait) {
+@media screen, (orientation: portrait) {
   .main-container {
     height: 88.5vh;
     width: 90vw;
@@ -393,7 +393,7 @@ span {
     padding-left: 5vw;
   }
 }
-@media handheld and (orientation: landscape) {
+@media (orientation: landscape) {
   .main-container {
     height: 98vh;
     width: 84vw;
@@ -413,12 +413,12 @@ span {
 #home-container {
   padding-top: 40vh;
 }
-@media screen, handheld and (orientation: portrait) {
+@media screen, (orientation: portrait) {
   #home-container {
     padding-left: 23vw;
   }
 }
-@media handheld and (orientation: landscape) {
+@media (orientation: landscape) {
   #home-container {
     padding-left: 17vw;
   }
@@ -474,12 +474,12 @@ span {
   margin-bottom: 2vh;
   bottom: 0;
 }
-@media screen, handheld and (orientation: portrait) {
+@media screen, (orientation: portrait) {
   .arrow-bottom {
     left: 49%;
   }
 }
-@media handheld and (orientation: landscape) {
+@media (orientation: landscape) {
   .arrow-bottom {
     left: 44.35%;
   }
