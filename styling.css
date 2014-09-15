@@ -299,9 +299,20 @@ span {
   color: white;
   text-decoration: none;
   font-size: 2.35vh;
-  line-height: 3vh;
-  padding-left: 8vh;
   display: none;
+}
+@media screen, (orientation: portrait) {
+  #home-button a {
+    line-height: 3vh;
+    padding-left: 8vh;
+  }
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape), only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+  #home-button a {
+    text-align: center;
+    width: 100%;
+    padding: 30% 0;
+  }
 }
 @media not (min-device-width : 768px) and (max-device-width : 1024px) and not (min-device-width : 320px) and (max-device-width : 568px) and screen {
   #home-button a:hover {
@@ -320,8 +331,17 @@ span {
   content: '';
   left: 0;
   top: 0;
-  bottom: 0;
   margin: auto;
+}
+@media screen, (orientation: portrait) {
+  #home-button a::before {
+    bottom: 0;
+  }
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape), only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+  #home-button a::before {
+    right: 0;
+  }
 }
 #header ul {
   position: relative;
