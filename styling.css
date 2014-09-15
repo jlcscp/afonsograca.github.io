@@ -101,7 +101,7 @@ span {
     justify-content: space-between;
   }
 }
-@media (orientation: landscape) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape), only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
   #header {
     width: 10vw;
     height: 100vh;
@@ -289,7 +289,7 @@ span {
     margin-left: 3vw;
   }
 }
-@media (orientation: landscape) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape), only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
   #home-button {
     margin-left: 1vw;
     height: 20%;
@@ -303,7 +303,7 @@ span {
   padding-left: 8vh;
   display: none;
 }
-@media not handheld and screen {
+@media not (min-device-width : 768px) and (max-device-width : 1024px) and not (min-device-width : 320px) and (max-device-width : 568px) and screen {
   #home-button a:hover {
     text-decoration: underline;
   }
@@ -344,7 +344,7 @@ span {
     margin-right: 3vw;
   }
 }
-@media (orientation: landscape) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape), only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
   #header ul {
     -webkit-box-direction: normal;
     -moz-box-direction: normal;
@@ -355,7 +355,7 @@ span {
     flex-direction: column;
   }
 }
-@media not handheld and screen {
+@media not (min-device-width : 768px) and (max-device-width : 1024px) and not (min-device-width : 320px) and (max-device-width : 568px) and screen {
   #header ul li:hover {
     border-bottom: thin solid rgba(255, 255, 255, 0.9);
   }
@@ -393,7 +393,7 @@ span {
     padding-left: 5vw;
   }
 }
-@media (orientation: landscape) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape), only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
   .main-container {
     height: 98vh;
     width: 84vw;
@@ -418,7 +418,7 @@ span {
     padding-left: 23vw;
   }
 }
-@media (orientation: landscape) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape), only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
   #home-container {
     padding-left: 17vw;
   }
@@ -464,7 +464,7 @@ span {
   cursor: pointer;
   z-index: 1;
 }
-@media not handheld and screen {
+@media not (min-device-width : 768px) and (max-device-width : 1024px) and not (min-device-width : 320px) and (max-device-width : 568px) and screen {
   .arrows:hover {
     opacity: 1;
   }
@@ -479,7 +479,7 @@ span {
     left: 49%;
   }
 }
-@media (orientation: landscape) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape), only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
   .arrow-bottom {
     left: 44.35%;
   }

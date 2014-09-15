@@ -282,6 +282,10 @@ $(document).ready(function(event) {
 		}
 	});
 
+	$(window).on('touchmove', function(event){
+		event.preventDefault();
+	});
+
 	$(window).on('touchend', function(event){
 		if(!isAnimated){
 			isAnimated = true;

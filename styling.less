@@ -27,6 +27,11 @@
 @defaultArrowDown : @desktopArrowDown;
 @defaultArrowLeft : @desktopArrowLeft;
 
+@landscapeMobileMedia: ~'only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape)';
+@landscapeTabletMedia: ~'only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)';
+@mobileMedia: ~'(min-device-width : 320px) and (max-device-width : 568px)';
+@tabletMedia: ~'(min-device-width : 768px) and (max-device-width : 1024px)';
+
 .fontStyling{
 	font-family: @defaultFont;
 	-webkit-font-smoothing: antialiased;
@@ -92,7 +97,7 @@ span{
 		.row-container;
 		.space-between-container;
 	}
-	@media (orientation: landscape){
+	@media @landscapeMobileMedia, @landscapeTabletMedia {
 		.headerLandscapePosition;
 		.column-container;
 		.space-around-container;
@@ -270,7 +275,7 @@ span{
 	@media screen, (orientation: portrait){
 		margin-left: 3vw;
 	}
-	@media (orientation: landscape){
+	@media @landscapeMobileMedia, @landscapeTabletMedia{
 		margin-left: 1vw;
 		height: 20%;
 	}
@@ -283,7 +288,7 @@ span{
 		padding-left: 8vh;
 		display: none;
 		
-		@media not handheld and screen{
+		@media not @tabletMedia and not @mobileMedia and screen{
 			&:hover{
 				text-decoration: underline;
 			}
@@ -317,11 +322,11 @@ span{
 	@media screen, (orientation: portrait){
 		margin-right: 3vw;
 	}
-	@media (orientation: landscape){
+	@media @landscapeMobileMedia, @landscapeTabletMedia {
 		.column-container;
 	}
 	li {
-		@media not handheld and screen{
+		@media not @tabletMedia and not @mobileMedia and screen{
 			&:hover{
 				border-bottom: thin solid rgba(255,255,255,0.9);
 			}
@@ -364,7 +369,7 @@ span{
 		padding-bottom: 1vh;
 		padding-left: 5vw;
 	}
-	@media (orientation: landscape){
+	@media @landscapeMobileMedia, @landscapeTabletMedia {
 		height: 98vh;
 		width: 84vw;
 		padding-top: 1vh;
@@ -388,7 +393,7 @@ span{
 	@media screen, (orientation: portrait){
 		padding-left: 23vw;
 	}
-	@media (orientation: landscape){
+	@media @landscapeMobileMedia, @landscapeTabletMedia {
 		padding-left: 17vw;
 	}
 }
@@ -442,7 +447,7 @@ span{
 	cursor: pointer;
 	z-index: 1;
 	
-	@media not handheld and screen {
+	@media not @tabletMedia and not @mobileMedia and screen {
 		&:hover{
 			opacity: 1;
 		}
@@ -456,7 +461,7 @@ span{
 	@media screen, (orientation: portrait){
 		left: 49%;
 	}
-	@media (orientation: landscape){
+	@media @landscapeMobileMedia, @landscapeTabletMedia {
 		left: 44.35%;
 	}
 }
