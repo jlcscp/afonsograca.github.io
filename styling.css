@@ -84,8 +84,24 @@ span {
   -ms-flex-align: stretch;
   align-items: stretch;
 }
-
-@media handheld and (orientation: landscape) {
+@media screen, (orientation:portrait) {
+  #header {
+    width: 100vw;
+    height: 10vh;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+@media (orientation:landscape) {
   #header {
     width: 10vw;
     height: 100vh;
