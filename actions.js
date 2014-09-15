@@ -280,7 +280,6 @@ $(document).ready(function(event) {
 			verticalTouchStart = event.originalEvent.touches[0].clientX;
 			verticalTouchStart = event.originalEvent.touches[0].clientY;
 		}
-		event.preventDefault();
 	});
 
 	$(window).on('touchend', function(event){
@@ -294,13 +293,13 @@ $(document).ready(function(event) {
 					else {
 						scrollUp();
 					}
+					event.preventDefault();
 				}
 			}
 			else{
 				isAnimated = false;
 			}
 		}
-		event.preventDefault();
 	});
 
 	/*CAROUSEL NAVIGATION*/

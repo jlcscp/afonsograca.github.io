@@ -283,8 +283,8 @@ span{
 		padding-left: 8vh;
 		display: none;
 		
-		@media screen{
-			FIXME &:hover{
+		@media not handheld and screen{
+			&:hover{
 				text-decoration: underline;
 			}
 		}
@@ -321,7 +321,7 @@ span{
 		.column-container;
 	}
 	li {
-		@media screen{
+		@media not handheld and screen{
 			&:hover{
 				border-bottom: thin solid rgba(255,255,255,0.9);
 			}
@@ -443,10 +443,12 @@ span{
 	opacity: 0.2;
 	cursor: pointer;
 	z-index: 1;
-}
-
-.arrows:hover{
-	opacity: 1;
+	
+	@media not handheld and screen {
+		&:hover{
+			opacity: 1;
+		}
+	}
 }
 
 .arrow-bottom {
@@ -589,12 +591,6 @@ span{
 .skills-lists li {
 	font-size: 3vmin;
 	margin: 2vh 0 0 2vw;
-}
-
-@media handheld {
-	*{
-		&:hover{}
-	}
 }
 
 @media handheld and (orientation:landscape){

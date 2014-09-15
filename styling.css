@@ -303,8 +303,8 @@ span {
   padding-left: 8vh;
   display: none;
 }
-@media screen {
-  FIXME #home-button a:hover {
+@media not handheld and screen {
+  #home-button a:hover {
     text-decoration: underline;
   }
 }
@@ -355,7 +355,7 @@ span {
     flex-direction: column;
   }
 }
-@media screen {
+@media not handheld and screen {
   #header ul li:hover {
     border-bottom: thin solid rgba(255, 255, 255, 0.9);
   }
@@ -464,8 +464,10 @@ span {
   cursor: pointer;
   z-index: 1;
 }
-.arrows:hover {
-  opacity: 1;
+@media not handheld and screen {
+  .arrows:hover {
+    opacity: 1;
+  }
 }
 .arrow-bottom {
   position: absolute;
