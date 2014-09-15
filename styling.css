@@ -84,7 +84,7 @@ span {
   -ms-flex-align: stretch;
   align-items: stretch;
 }
-@media screen, handheld and (orientation: portrait) {
+@media screen and not handheld, handheld and (orientation: portrait) {
   #header {
     width: 100vw;
     height: 10vh;
