@@ -6,8 +6,7 @@ $(document).ready(function(event) {
 
 	/*INITIALISING FUNCTIONS*/
 	var highlightSection = function(location){
-		/*if(window.orientation == 90 || window.orientation == -90)*/
-		if(window.orientation == undefined){
+		if(window.orientation == 90 || window.orientation == -90){
 			$('a[href="'+location+'"]').css("border-left","thin solid rgba(255,255,255,0.8)");
 		}
 		else {
