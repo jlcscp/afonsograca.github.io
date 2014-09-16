@@ -27,8 +27,8 @@
 @defaultArrowDown : @desktopArrowDown;
 @defaultArrowLeft : @desktopArrowLeft;
 
-@landscapeMobileMedia: ~'only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape)';
-@landscapeTabletMedia: ~'only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)';
+@landscapeMobileMedia: ~'screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape)';
+@landscapeTabletMedia: ~' screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)';
 @mobileMedia: ~'(min-device-width : 320px) and (max-device-width : 568px)';
 @tabletMedia: ~'(min-device-width : 768px) and (max-device-width : 1024px)';
 
@@ -97,7 +97,7 @@ span{
 		.row-container;
 		.space-between-container;
 	}
-	@media @landscapeMobileMedia, @landscapeTabletMedia {
+	@media only @landscapeMobileMedia, @landscapeTabletMedia {
 		.headerLandscapePosition;
 		.column-container;
 		.space-around-container;
@@ -275,7 +275,7 @@ span{
 	@media screen, (orientation: portrait){
 		margin-left: 3vw;
 	}
-	@media @landscapeMobileMedia, @landscapeTabletMedia{
+	@media only @landscapeMobileMedia, @landscapeTabletMedia{
 		margin-left: 1vw;
 		height: 20%;
 	}
@@ -290,7 +290,7 @@ span{
 			line-height: 3vh;
 			padding-left: 8vh;
 		}
-		@media @landscapeMobileMedia, @landscapeTabletMedia{
+		@media only @landscapeMobileMedia, @landscapeTabletMedia{
 			text-align: center;
 			width: 100%;
 			padding: 30% 0;
@@ -317,7 +317,7 @@ span{
 			@media screen, (orientation: portrait){
 				bottom:0;
 			}
-			@media @landscapeMobileMedia, @landscapeTabletMedia{
+			@media only @landscapeMobileMedia, @landscapeTabletMedia{
 				right:0;
 			}
 		}
@@ -334,7 +334,7 @@ span{
 	@media screen, (orientation: portrait){
 		margin-right: 3vw;
 	}
-	@media @landscapeMobileMedia, @landscapeTabletMedia {
+	@media only @landscapeMobileMedia, @landscapeTabletMedia {
 		.column-container;
 	}
 	li {
@@ -381,7 +381,7 @@ span{
 		padding-bottom: 1vh;
 		padding-left: 5vw;
 	}
-	@media @landscapeMobileMedia, @landscapeTabletMedia {
+	@media only @landscapeMobileMedia, @landscapeTabletMedia {
 		height: 98vh;
 		width: 84vw;
 		padding-top: 1vh;
@@ -405,7 +405,7 @@ span{
 	@media screen, (orientation: portrait){
 		padding-left: 23vw;
 	}
-	@media @landscapeMobileMedia, @landscapeTabletMedia {
+	@media only @landscapeMobileMedia, @landscapeTabletMedia {
 		padding-left: 17vw;
 	}
 }
@@ -473,7 +473,7 @@ span{
 	@media screen, (orientation: portrait){
 		left: 49%;
 	}
-	@media @landscapeMobileMedia, @landscapeTabletMedia {
+	@media only  @landscapeMobileMedia, @landscapeTabletMedia {
 		left: 44.35%;
 	}
 }

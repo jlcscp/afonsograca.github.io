@@ -101,7 +101,7 @@ span {
     justify-content: space-between;
   }
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape), only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape),  screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
   #header {
     width: 10vw;
     height: 100vh;
@@ -289,7 +289,7 @@ span {
     margin-left: 3vw;
   }
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape), only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape),  screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
   #home-button {
     margin-left: 1vw;
     height: 20%;
@@ -307,7 +307,7 @@ span {
     padding-left: 8vh;
   }
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape), only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape),  screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
   #home-button a {
     text-align: center;
     width: 100%;
@@ -338,7 +338,7 @@ span {
     bottom: 0;
   }
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape), only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape),  screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
   #home-button a::before {
     right: 0;
   }
@@ -364,7 +364,7 @@ span {
     margin-right: 3vw;
   }
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape), only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape),  screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
   #header ul {
     -webkit-box-direction: normal;
     -moz-box-direction: normal;
@@ -413,7 +413,7 @@ span {
     padding-left: 5vw;
   }
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape), only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape),  screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
   .main-container {
     height: 98vh;
     width: 84vw;
@@ -438,7 +438,7 @@ span {
     padding-left: 23vw;
   }
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape), only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape),  screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
   #home-container {
     padding-left: 17vw;
   }
@@ -499,7 +499,7 @@ span {
     left: 49%;
   }
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape), only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape),  screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
   .arrow-bottom {
     left: 44.35%;
   }
