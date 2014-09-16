@@ -46,7 +46,6 @@ $(document).ready(function(event) {
     	$('.work-main-container').css({'left' : $('.work-main-container li').outerWidth()*(-1)});
 		$("#background section").each(function(){
 			var offset = (currentSection-parseInt($(this).attr("tabindex")))*100*(-1);
-			console.log(offset);
 			$(this).css({top : offset +'vh'});
 		});
 	};

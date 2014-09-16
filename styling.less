@@ -324,7 +324,7 @@ span{
 			left:0;			
 			top:0;
 			margin:auto;
-			@media not @tabletMedia and not @mobileMedia, (orientation: portrait){
+			@media only screen, (orientation: portrait){
 				bottom:0;
 			}
 			@media only @landscapeMobileMedia, @landscapeTabletMedia{
@@ -490,10 +490,10 @@ span{
 	@media screen, (orientation: portrait){
 		left: 49%;
 	}
-	@media only  @landscapeMobileMedia, @landscapeTabletMedia {
+	@media only @landscapeTabletMedia {
 		left: 44.35%;
 	}
-	@media only  @landscapeMobileMedia, @landscapeTabletMedia {
+	@media only @landscapeMobileMedia{
 		left: 41.25%;
 	}
 }
@@ -505,11 +505,11 @@ span{
 		margin-top: 10.5vh;
 		left: 49%;
 	}
-	@media only  @landscapeMobileMedia, @landscapeTabletMedia {
+	@media only @landscapeTabletMedia {
 		margin-top: 2vh;
 		left: 44.35%;
 	}
-	@media only  @landscapeMobileMedia, @landscapeTabletMedia {
+	@media only @landscapeMobileMedia {
 		margin-top: 2vh;
 		left: 41.25%;
 	}

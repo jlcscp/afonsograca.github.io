@@ -360,7 +360,7 @@ span {
   top: 0;
   margin: auto;
 }
-@media not (min-device-width : 768px) and (max-device-width : 1024px) and not (min-device-width : 320px) and (max-device-width : 568px), (orientation: portrait) {
+@media only screen, (orientation: portrait) {
   #home-button a::before {
     bottom: 0;
   }
@@ -535,12 +535,12 @@ span {
     left: 49%;
   }
 }
-@media only screen and (max-device-width : 650px) and (orientation : landscape),  screen and (min-device-width : 651px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only  screen and (min-device-width : 651px) and (max-device-width : 1024px) and (orientation : landscape) {
   .arrow-bottom {
     left: 44.35%;
   }
 }
-@media only screen and (max-device-width : 650px) and (orientation : landscape),  screen and (min-device-width : 651px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only screen and (max-device-width : 650px) and (orientation : landscape) {
   .arrow-bottom {
     left: 41.25%;
   }
@@ -555,13 +555,13 @@ span {
     left: 49%;
   }
 }
-@media only screen and (max-device-width : 650px) and (orientation : landscape),  screen and (min-device-width : 651px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only  screen and (min-device-width : 651px) and (max-device-width : 1024px) and (orientation : landscape) {
   .arrow_top {
     margin-top: 2vh;
     left: 44.35%;
   }
 }
-@media only screen and (max-device-width : 650px) and (orientation : landscape),  screen and (min-device-width : 651px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only screen and (max-device-width : 650px) and (orientation : landscape) {
   .arrow_top {
     margin-top: 2vh;
     left: 41.25%;
