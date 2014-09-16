@@ -16,14 +16,14 @@ $(document).ready(function(event) {
 	var selectedMenuButton = function(){
 		currentSection = getMenuIndex(location.hash);
 
-		$("#header ul li a").css({"border":""});
+		$("#header ul li a").css({"border-bottom":"","border-left":""});
 		if(location.hash !== ""){
 			highlightSection(location.hash);
 		}
 	};
 
 	var menuStyleSetter = function(current){
-		$("#header ul li a").css({"border":""});
+		$("#header ul li a").css({"border-bottom":"","border-left":""});
 		if(current != 1){
 			highlightSection('#'+getMenuHash(current));
 			$("#home-button a").fadeIn({ duration: 'slow', queue: false }).css("display","inline-block");;

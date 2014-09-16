@@ -60,6 +60,11 @@ span {
   height: 100vh;
   right: 0;
 }
+.headerMobileLandscapePosition {
+  width: 15vw;
+  height: 100vh;
+  right: 0;
+}
 #header {
   position: fixed;
   background: rgba(0, 0, 0, 0.85);
@@ -101,9 +106,31 @@ span {
     justify-content: space-between;
   }
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape),  screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only  screen and (min-device-width : 651px) and (max-device-width : 1024px) and (orientation : landscape) {
   #header {
     width: 10vw;
+    height: 100vh;
+    right: 0;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-align-content: space-around;
+    -ms-flex-line-pack: distribute;
+    align-content: space-around;
+  }
+}
+@media only screen and (max-device-width : 650px) and (orientation : landscape) {
+  #header {
+    width: 15vw;
     height: 100vh;
     right: 0;
     -webkit-box-direction: normal;
@@ -284,14 +311,14 @@ span {
   align-items: center;
   position: relative;
 }
-@media screen, (orientation: portrait) {
+@media only screen, (orientation: portrait) {
   #home-button {
     margin-left: 3vw;
   }
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape),  screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only screen and (max-device-width : 650px) and (orientation : landscape),  screen and (min-device-width : 651px) and (max-device-width : 1024px) and (orientation : landscape) {
   #home-button {
-    margin-left: 1vw;
+    margin-left: 0;
     height: 20%;
   }
 }
@@ -307,11 +334,11 @@ span {
     padding-left: 8vh;
   }
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape),  screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only screen and (max-device-width : 650px) and (orientation : landscape),  screen and (min-device-width : 651px) and (max-device-width : 1024px) and (orientation : landscape) {
   #home-button a {
     text-align: center;
     width: 100%;
-    padding: 30% 0;
+    padding: 30% 5%;
   }
 }
 @media not (min-device-width : 768px) and (max-device-width : 1024px) and not (min-device-width : 320px) and (max-device-width : 568px) and screen {
@@ -333,12 +360,12 @@ span {
   top: 0;
   margin: auto;
 }
-@media screen, (orientation: portrait) {
+@media not (min-device-width : 768px) and (max-device-width : 1024px) and not (min-device-width : 320px) and (max-device-width : 568px), (orientation: portrait) {
   #home-button a::before {
     bottom: 0;
   }
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape),  screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only screen and (max-device-width : 650px) and (orientation : landscape),  screen and (min-device-width : 651px) and (max-device-width : 1024px) and (orientation : landscape) {
   #home-button a::before {
     right: 0;
   }
@@ -364,7 +391,7 @@ span {
     margin-right: 3vw;
   }
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape),  screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only screen and (max-device-width : 650px) and (orientation : landscape),  screen and (min-device-width : 651px) and (max-device-width : 1024px) and (orientation : landscape) {
   #header ul {
     -webkit-box-direction: normal;
     -moz-box-direction: normal;
@@ -413,10 +440,19 @@ span {
     padding-left: 5vw;
   }
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape),  screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only  screen and (min-device-width : 651px) and (max-device-width : 1024px) and (orientation : landscape) {
   .main-container {
     height: 98vh;
     width: 84vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-left: 3vw;
+  }
+}
+@media only screen and (max-device-width : 650px) and (orientation : landscape) {
+  .main-container {
+    height: 98vh;
+    width: 79vw;
     padding-top: 1vh;
     padding-bottom: 1vh;
     padding-left: 3vw;
@@ -438,7 +474,7 @@ span {
     padding-left: 23vw;
   }
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape),  screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only screen and (max-device-width : 650px) and (orientation : landscape),  screen and (min-device-width : 651px) and (max-device-width : 1024px) and (orientation : landscape) {
   #home-container {
     padding-left: 17vw;
   }
@@ -499,16 +535,37 @@ span {
     left: 49%;
   }
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape),  screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only screen and (max-device-width : 650px) and (orientation : landscape),  screen and (min-device-width : 651px) and (max-device-width : 1024px) and (orientation : landscape) {
   .arrow-bottom {
     left: 44.35%;
   }
 }
+@media only screen and (max-device-width : 650px) and (orientation : landscape),  screen and (min-device-width : 651px) and (max-device-width : 1024px) and (orientation : landscape) {
+  .arrow-bottom {
+    left: 41.25%;
+  }
+}
 .arrow_top {
   position: absolute;
-  margin-top: 10.5vh;
-  margin-left: 49vw;
   top: 0;
+}
+@media screen, (orientation: portrait) {
+  .arrow_top {
+    margin-top: 10.5vh;
+    left: 49%;
+  }
+}
+@media only screen and (max-device-width : 650px) and (orientation : landscape),  screen and (min-device-width : 651px) and (max-device-width : 1024px) and (orientation : landscape) {
+  .arrow_top {
+    margin-top: 2vh;
+    left: 44.35%;
+  }
+}
+@media only screen and (max-device-width : 650px) and (orientation : landscape),  screen and (min-device-width : 651px) and (max-device-width : 1024px) and (orientation : landscape) {
+  .arrow_top {
+    margin-top: 2vh;
+    left: 41.25%;
+  }
 }
 .white-arrow-down:before {
   content: "\e600";

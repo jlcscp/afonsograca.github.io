@@ -27,8 +27,8 @@
 @defaultArrowDown : @desktopArrowDown;
 @defaultArrowLeft : @desktopArrowLeft;
 
-@landscapeMobileMedia: ~'screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape)';
-@landscapeTabletMedia: ~' screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)';
+@landscapeMobileMedia: ~'screen and (max-device-width : 650px) and (orientation : landscape)';
+@landscapeTabletMedia: ~' screen and (min-device-width : 651px) and (max-device-width : 1024px) and (orientation : landscape)';
 @mobileMedia: ~'(min-device-width : 320px) and (max-device-width : 568px)';
 @tabletMedia: ~'(min-device-width : 768px) and (max-device-width : 1024px)';
 
@@ -84,6 +84,11 @@ span{
 	right: 0;
 }
 
+.headerMobileLandscapePosition{
+	width:15vw;
+	height:100vh;
+	right: 0;
+}
 #header{
 	position: fixed;
 	background: rgba(0,0,0,.85);
@@ -97,8 +102,13 @@ span{
 		.row-container;
 		.space-between-container;
 	}
-	@media only @landscapeMobileMedia, @landscapeTabletMedia {
+	@media only @landscapeTabletMedia {
 		.headerLandscapePosition;
+		.column-container;
+		.space-around-container;
+	}
+	@media only @landscapeMobileMedia {
+		.headerMobileLandscapePosition;
 		.column-container;
 		.space-around-container;
 	}
@@ -272,11 +282,11 @@ span{
     align-items: center;
 	position:relative;
 	
-	@media screen, (orientation: portrait){
+	@media only screen, (orientation: portrait){
 		margin-left: 3vw;
 	}
 	@media only @landscapeMobileMedia, @landscapeTabletMedia{
-		margin-left: 1vw;
+		margin-left: 0;
 		height: 20%;
 	}
 	
@@ -293,7 +303,7 @@ span{
 		@media only @landscapeMobileMedia, @landscapeTabletMedia{
 			text-align: center;
 			width: 100%;
-			padding: 30% 0;
+			padding: 30% 5%;
 		}
 		@media not @tabletMedia and not @mobileMedia and screen{
 			&:hover{
@@ -314,7 +324,7 @@ span{
 			left:0;			
 			top:0;
 			margin:auto;
-			@media screen, (orientation: portrait){
+			@media not @tabletMedia and not @mobileMedia, (orientation: portrait){
 				bottom:0;
 			}
 			@media only @landscapeMobileMedia, @landscapeTabletMedia{
@@ -381,9 +391,16 @@ span{
 		padding-bottom: 1vh;
 		padding-left: 5vw;
 	}
-	@media only @landscapeMobileMedia, @landscapeTabletMedia {
+	@media only @landscapeTabletMedia {
 		height: 98vh;
 		width: 84vw;
+		padding-top: 1vh;
+		padding-bottom: 1vh;
+		padding-left: 3vw;
+	}
+	@media only @landscapeMobileMedia {
+		height: 98vh;
+		width: 79vw;
 		padding-top: 1vh;
 		padding-bottom: 1vh;
 		padding-left: 3vw;
@@ -476,13 +493,26 @@ span{
 	@media only  @landscapeMobileMedia, @landscapeTabletMedia {
 		left: 44.35%;
 	}
+	@media only  @landscapeMobileMedia, @landscapeTabletMedia {
+		left: 41.25%;
+	}
 }
 
 .arrow_top {
 	position: absolute;
-	margin-top: 10.5vh;
-	margin-left: 49vw;
 	top: 0;
+	@media screen, (orientation: portrait){
+		margin-top: 10.5vh;
+		left: 49%;
+	}
+	@media only  @landscapeMobileMedia, @landscapeTabletMedia {
+		margin-top: 2vh;
+		left: 44.35%;
+	}
+	@media only  @landscapeMobileMedia, @landscapeTabletMedia {
+		margin-top: 2vh;
+		left: 41.25%;
+	}
 }
 
 .white-arrow-down:before {
