@@ -52,6 +52,11 @@ $(document).ready(function(event) {
 	$(window).on('resize', function(){
 		$("body").hide().show(0);
    		setViewportSizes();
+		setCarousels();
+	});
+
+	$(window).on('orientationchange', function(event){
+		selectedMenuButton();
 	});
 
 	/*HASH CATCHING DEFINITION*/

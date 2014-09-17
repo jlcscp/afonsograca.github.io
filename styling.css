@@ -360,7 +360,7 @@ span {
   top: 0;
   margin: auto;
 }
-@media only screen, (orientation: portrait) {
+@media only screen and not (max-device-width : 1024px), (orientation: portrait) {
   #home-button a::before {
     bottom: 0;
   }
@@ -402,7 +402,7 @@ span {
     flex-direction: column;
   }
 }
-@media not (min-device-width : 768px) and (max-device-width : 1024px) and not (min-device-width : 320px) and (max-device-width : 568px) and screen {
+@media only screen and not (max-device-width : 1024px) {
   #header ul li:hover {
     border-bottom: thin solid rgba(255, 255, 255, 0.9);
   }
@@ -431,7 +431,7 @@ span {
   width: 90vw;
   line-height: 1.4em;
 }
-@media screen, (orientation: portrait) {
+@media only screen and not (max-device-width : 1024px), (orientation: portrait) {
   .main-container {
     height: 88.5vh;
     width: 90vw;
@@ -469,7 +469,7 @@ span {
 #home-container {
   padding-top: 40vh;
 }
-@media screen, (orientation: portrait) {
+@media only screen and not (max-device-width : 1024px), (orientation: portrait) {
   #home-container {
     padding-left: 23vw;
   }
@@ -520,7 +520,7 @@ span {
   cursor: pointer;
   z-index: 1;
 }
-@media not (min-device-width : 768px) and (max-device-width : 1024px) and not (min-device-width : 320px) and (max-device-width : 568px) and screen {
+@media only screen and not (max-device-width : 1024px) {
   .arrows:hover {
     opacity: 1;
   }
@@ -530,7 +530,7 @@ span {
   margin-bottom: 2vh;
   bottom: 0;
 }
-@media screen, (orientation: portrait) {
+@media only screen and not (max-device-width : 1024px), (orientation: portrait) {
   .arrow-bottom {
     left: 49%;
   }
@@ -549,7 +549,7 @@ span {
   position: absolute;
   top: 0;
 }
-@media screen, (orientation: portrait) {
+@media only screen and not (max-device-width : 1024px), (orientation: portrait) {
   .arrow_top {
     margin-top: 10.5vh;
     left: 49%;
