@@ -281,7 +281,7 @@ $(document).ready(function(event) {
 	/*DETECT SCROLL IN MOBILE*/
 	$(window).on('touchstart', function(event){
 		if(!isAnimated){
-			verticalTouchStart = event.originalEvent.touches[0].clientX;
+			horizontalTouchStart = event.originalEvent.touches[0].clientX;
 			verticalTouchStart = event.originalEvent.touches[0].clientY;
 		}
 	});
