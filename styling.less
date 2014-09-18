@@ -31,7 +31,7 @@
 @landscapeTabletMedia: ~' screen and (min-device-width : 651px) and (max-device-width : 1024px) and (orientation : landscape)';
 @mobileMedia: ~'(min-device-width : 320px) and (max-device-width : 568px)';
 @tabletMedia: ~'(min-device-width : 768px) and (max-device-width : 1024px)';
-@handheldLandscape: ~'(max-device-width : 1024px)'; 
+@handheldLandscape: ~'screen and (max-device-width : 1024px)'; 
 
 .fontStyling{
 	font-family: @defaultFont;
@@ -98,7 +98,7 @@ span{
 	.flex-container; 
 	.stretch-container;
 	
-	@media screen, (orientation: portrait){
+	@media only screen, (orientation: portrait){
 		.headerPortraitPosition;
 		.row-container;
 		.space-between-container;
@@ -306,7 +306,7 @@ span{
 			width: 100%;
 			padding: 30% 5%;
 		}
-		@media not @tabletMedia and not @mobileMedia and screen{
+		@media not @handheldLandscape {
 			&:hover{
 				text-decoration: underline;
 			}
@@ -325,7 +325,7 @@ span{
 			left:0;			
 			top:0;
 			margin:auto;
-			@media only screen and not @handheldLandscape, (orientation: portrait){
+			@media not @handheldLandscape, (orientation: portrait){
 				bottom:0;
 			}
 			@media only @landscapeMobileMedia, @landscapeTabletMedia{
@@ -342,14 +342,14 @@ span{
 	list-style: none outside;
 	.flex-container;
 
-	@media screen, (orientation: portrait){
+	@media only screen, (orientation: portrait){
 		margin-right: 3vw;
 	}
 	@media only @landscapeMobileMedia, @landscapeTabletMedia {
 		.column-container;
 	}
 	li {
-		@media only screen and not @handheldLandscape{
+		@media not @handheldLandscape{
 			&:hover{
 				border-bottom: thin solid rgba(255,255,255,0.9);
 			}
@@ -385,7 +385,7 @@ span{
 }
 
 .main-container{
-	@media only screen and not @handheldLandscape, (orientation: portrait){
+	@media not @handheldLandscape, (orientation: portrait){
 		height: 88.5vh; 
 		width: 90vw;
 		padding-top: 10.5vh;
@@ -420,7 +420,7 @@ span{
 
 #home-container{	
 	padding-top: 40vh;
-	@media only screen and not @handheldLandscape, (orientation: portrait){
+	@media not @handheldLandscape, (orientation: portrait){
 		padding-left: 23vw;
 	}
 	@media only @landscapeMobileMedia, @landscapeTabletMedia {
@@ -477,7 +477,7 @@ span{
 	cursor: pointer;
 	z-index: 1;
 	
-	@media only screen and not @handheldLandscape {
+	@media not @handheldLandscape {
 		&:hover{
 			opacity: 1;
 		}
@@ -488,7 +488,7 @@ span{
 	position: absolute;
 	margin-bottom: 2vh;
 	bottom: 0;
-	@media only screen and not @handheldLandscape, (orientation: portrait){
+	@media not @handheldLandscape, (orientation: portrait){
 		left: 49%;
 	}
 	@media only @landscapeTabletMedia {
@@ -502,7 +502,7 @@ span{
 .arrow_top {
 	position: absolute;
 	top: 0;
-	@media only screen and not @handheldLandscape, (orientation: portrait){
+	@media not @handheldLandscape, (orientation: portrait){
 		margin-top: 10.5vh;
 		left: 49%;
 	}

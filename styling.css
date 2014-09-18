@@ -89,7 +89,7 @@ span {
   -ms-flex-align: stretch;
   align-items: stretch;
 }
-@media screen, (orientation: portrait) {
+@media only screen, (orientation: portrait) {
   #header {
     width: 100vw;
     height: 10vh;
@@ -341,7 +341,7 @@ span {
     padding: 30% 5%;
   }
 }
-@media not (min-device-width : 768px) and (max-device-width : 1024px) and not (min-device-width : 320px) and (max-device-width : 568px) and screen {
+@media not screen and (max-device-width : 1024px) {
   #home-button a:hover {
     text-decoration: underline;
   }
@@ -360,7 +360,7 @@ span {
   top: 0;
   margin: auto;
 }
-@media only screen and not (max-device-width : 1024px), (orientation: portrait) {
+@media not screen and (max-device-width : 1024px), (orientation: portrait) {
   #home-button a::before {
     bottom: 0;
   }
@@ -386,7 +386,7 @@ span {
   display: flex;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
-@media screen, (orientation: portrait) {
+@media only screen, (orientation: portrait) {
   #header ul {
     margin-right: 3vw;
   }
@@ -402,7 +402,7 @@ span {
     flex-direction: column;
   }
 }
-@media only screen and not (max-device-width : 1024px) {
+@media not screen and (max-device-width : 1024px) {
   #header ul li:hover {
     border-bottom: thin solid rgba(255, 255, 255, 0.9);
   }
@@ -431,7 +431,7 @@ span {
   width: 90vw;
   line-height: 1.4em;
 }
-@media only screen and not (max-device-width : 1024px), (orientation: portrait) {
+@media not screen and (max-device-width : 1024px), (orientation: portrait) {
   .main-container {
     height: 88.5vh;
     width: 90vw;
@@ -469,7 +469,7 @@ span {
 #home-container {
   padding-top: 40vh;
 }
-@media only screen and not (max-device-width : 1024px), (orientation: portrait) {
+@media not screen and (max-device-width : 1024px), (orientation: portrait) {
   #home-container {
     padding-left: 23vw;
   }
@@ -520,7 +520,7 @@ span {
   cursor: pointer;
   z-index: 1;
 }
-@media only screen and not (max-device-width : 1024px) {
+@media not screen and (max-device-width : 1024px) {
   .arrows:hover {
     opacity: 1;
   }
@@ -530,7 +530,7 @@ span {
   margin-bottom: 2vh;
   bottom: 0;
 }
-@media only screen and not (max-device-width : 1024px), (orientation: portrait) {
+@media not screen and (max-device-width : 1024px), (orientation: portrait) {
   .arrow-bottom {
     left: 49%;
   }
@@ -549,7 +549,7 @@ span {
   position: absolute;
   top: 0;
 }
-@media only screen and not (max-device-width : 1024px), (orientation: portrait) {
+@media not screen and (max-device-width : 1024px), (orientation: portrait) {
   .arrow_top {
     margin-top: 10.5vh;
     left: 49%;
