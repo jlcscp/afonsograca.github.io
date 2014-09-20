@@ -32,7 +32,7 @@
 @mobileMedia: ~'(min-device-width : 320px) and (max-device-width : 568px)';
 @tabletMedia: ~'(min-device-width : 768px) and (max-device-width : 1024px)';
 @handheldLandscape: ~'screen and (max-width : 1024px)';
-@desktopMedia: ~'(min-device-width : 1025px)';
+@desktopMedia: ~'screen and (min-device-width : 1025px)';
 
 .fontStyling{
 	font-family: @defaultFont;
@@ -75,6 +75,28 @@ span{
 	line-height: 4vmin;
 }
 
+@media only @landscapeMobileMedia {
+	h1{
+		font-size: 5.25vmax;
+		line-height: 7vmax;
+	}
+
+	h2{
+		font-size: 2.854vmax;
+		line-height: 1.7vmax;
+	}
+
+	h3{
+		font-size: 1.05vmax;
+		line-height: 1.4vmax;
+	}
+
+	span{
+		font-size: 2.2vmax;
+		line-height: 4vmax;
+	}
+}
+
 .headerPortraitPosition {
 	width:100vw;
 	height:10vh;
@@ -99,7 +121,7 @@ span{
 	.flex-container; 
 	.stretch-container;
 	
-	@media only screen, (orientation: portrait){
+	@media only @desktopMedia, (orientation: portrait){
 		.headerPortraitPosition;
 		.row-container;
 		.space-between-container;
@@ -284,12 +306,14 @@ span{
     align-items: center;
 	position:relative;
 	
-	@media only screen, (orientation: portrait){
+	@media only @desktopMedia and (orientation: portrait), (orientation: portrait){
 		margin-left: 3vw;
 	}
-	@media only @landscapeMobileMedia, @landscapeTabletMedia{
-		margin-left: 0;
+	@media only @landscapeTabletMedia{
 		height: 20%;
+	}
+	@media only @landscapeMobileMedia{
+		height: 30%;
 	}
 	
 	a {
@@ -302,10 +326,17 @@ span{
 			line-height: 3vh;
 			padding-left: 8vh;
 		}
-		@media only @landscapeMobileMedia, @landscapeTabletMedia{
+		@media only @landscapeTabletMedia{
 			text-align: center;
 			width: 100%;
 			padding: 30% 5%;
+		}
+		@media only @landscapeMobileMedia{
+			font-size: 2.35vw;
+			text-align: center;
+			width: 100%;
+			padding-left: 5%;
+			padding-right: 5%;
 		}
 		@media not @handheldLandscape {
 			&:hover{
@@ -332,6 +363,10 @@ span{
 			@media only @landscapeMobileMedia, @landscapeTabletMedia{
 				right:0;
 			}
+			@media only @landscapeMobileMedia{
+				height: 7vw;
+				width: 7vw;
+			}
 		}
 	}
 }
@@ -343,16 +378,21 @@ span{
 	list-style: none outside;
 	.flex-container;
 
-	@media only screen, (orientation: portrait){
+	@media only @desktopMedia and (orientation: portrait), (orientation: portrait){
 		margin-right: 3vw;
 	}
 	@media only @landscapeMobileMedia, @landscapeTabletMedia {
 		.column-container;
 	}
 	li {
-		@media not @handheldLandscape{
+		@media only @desktopMedia and (orientation: portrait){
 			&:hover{
 				border-bottom: thin solid rgba(255,255,255,0.9);
+			}
+		}
+		@media only @desktopMedia and (orientation: landscape){
+			&:hover{
+				border-left: thin solid rgba(255,255,255,0.9);
 			}
 		}
 		a {
@@ -362,6 +402,10 @@ span{
 			font-size: 2.35vh;
 			width:100%;
 			text-align: center;
+			
+			@media only @landscapeMobileMedia{
+				font-size: 2.35vw;
+			}
 		}
 	}
 }

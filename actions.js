@@ -304,6 +304,9 @@ $(document).ready(function(event) {
 					}
 					event.preventDefault();
 				}
+				else{
+					isAnimated = false;
+				}
 			}
 			else{
 				isAnimated = false;

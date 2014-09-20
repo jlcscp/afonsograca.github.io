@@ -51,6 +51,24 @@ span {
   font-size: 2.2vmin;
   line-height: 4vmin;
 }
+@media only screen and (max-width : 650px) and (orientation : landscape) {
+  h1 {
+    font-size: 5.25vmax;
+    line-height: 7vmax;
+  }
+  h2 {
+    font-size: 2.854vmax;
+    line-height: 1.7vmax;
+  }
+  h3 {
+    font-size: 1.05vmax;
+    line-height: 1.4vmax;
+  }
+  span {
+    font-size: 2.2vmax;
+    line-height: 4vmax;
+  }
+}
 .headerPortraitPosition {
   width: 100vw;
   height: 10vh;
@@ -89,7 +107,7 @@ span {
   -ms-flex-align: stretch;
   align-items: stretch;
 }
-@media only screen, (orientation: portrait) {
+@media only screen and (min-device-width : 1025px), (orientation: portrait) {
   #header {
     width: 100vw;
     height: 10vh;
@@ -311,15 +329,19 @@ span {
   align-items: center;
   position: relative;
 }
-@media only screen, (orientation: portrait) {
+@media only screen and (min-device-width : 1025px) and (orientation: portrait), (orientation: portrait) {
   #home-button {
     margin-left: 3vw;
   }
 }
-@media only screen and (max-width : 650px) and (orientation : landscape),  screen and (min-width : 651px) and (max-width : 1024px) and (orientation : landscape) {
+@media only  screen and (min-width : 651px) and (max-width : 1024px) and (orientation : landscape) {
   #home-button {
-    margin-left: 0;
     height: 20%;
+  }
+}
+@media only screen and (max-width : 650px) and (orientation : landscape) {
+  #home-button {
+    height: 30%;
   }
 }
 #home-button a {
@@ -334,11 +356,20 @@ span {
     padding-left: 8vh;
   }
 }
-@media only screen and (max-width : 650px) and (orientation : landscape),  screen and (min-width : 651px) and (max-width : 1024px) and (orientation : landscape) {
+@media only  screen and (min-width : 651px) and (max-width : 1024px) and (orientation : landscape) {
   #home-button a {
     text-align: center;
     width: 100%;
     padding: 30% 5%;
+  }
+}
+@media only screen and (max-width : 650px) and (orientation : landscape) {
+  #home-button a {
+    font-size: 2.35vw;
+    text-align: center;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
   }
 }
 @media not screen and (max-width : 1024px) {
@@ -370,6 +401,12 @@ span {
     right: 0;
   }
 }
+@media only screen and (max-width : 650px) and (orientation : landscape) {
+  #home-button a::before {
+    height: 7vw;
+    width: 7vw;
+  }
+}
 #header ul {
   position: relative;
   margin: 0;
@@ -386,7 +423,7 @@ span {
   display: flex;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
-@media only screen, (orientation: portrait) {
+@media only screen and (min-device-width : 1025px) and (orientation: portrait), (orientation: portrait) {
   #header ul {
     margin-right: 3vw;
   }
@@ -402,9 +439,14 @@ span {
     flex-direction: column;
   }
 }
-@media not screen and (max-width : 1024px) {
+@media only screen and (min-device-width : 1025px) and (orientation: portrait) {
   #header ul li:hover {
     border-bottom: thin solid rgba(255, 255, 255, 0.9);
+  }
+}
+@media only screen and (min-device-width : 1025px) and (orientation: landscape) {
+  #header ul li:hover {
+    border-left: thin solid rgba(255, 255, 255, 0.9);
   }
 }
 #header ul li a {
@@ -414,6 +456,11 @@ span {
   font-size: 2.35vh;
   width: 100%;
   text-align: center;
+}
+@media only screen and (max-width : 650px) and (orientation : landscape) {
+  #header ul li a {
+    font-size: 2.35vw;
+  }
 }
 #background {
   width: 100vw;
