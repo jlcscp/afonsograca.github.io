@@ -425,6 +425,12 @@ span{
 				border-left: thin solid rgba(255,255,255,0.9);
 			}
 		}
+		@media not @handheldLandscape {
+			&:hover{
+				border-left: none;
+				border-bottom: thin solid rgba(255,255,255,0.9);
+			}
+		}
 		a {
 			color: white;
 			text-decoration: none;

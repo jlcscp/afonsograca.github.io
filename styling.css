@@ -474,6 +474,12 @@ span {
     border-left: thin solid rgba(255, 255, 255, 0.9);
   }
 }
+@media not screen and (max-width : 1024px) {
+  #header ul li:hover {
+    border-left: none;
+    border-bottom: thin solid rgba(255, 255, 255, 0.9);
+  }
+}
 #header ul li a {
   color: white;
   text-decoration: none;

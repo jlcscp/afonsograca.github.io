@@ -56,6 +56,7 @@ $(document).ready(function(event) {
 	});
 
 	$(window).on('orientationchange', function(event){
+		$("body").hide().show(0);
 		selectedMenuButton();
 	});
 
