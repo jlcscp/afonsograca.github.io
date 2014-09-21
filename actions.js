@@ -308,27 +308,58 @@ $(document).ready(function(event) {
 				}
 			}
 			else{
-				isAnimated = false;
+				if(Math.abs(event.originalEvent.changedTouches[0].clientX - horizontalTouchStart) > 10){
+					if(event.originalEvent.changedTouches[0].clientX < horizontalTouchStart){
+						scrollRight();
+					}
+					else {
+						scrollLeft();
+					}
+					event.preventDefault();
+				}
+				else{
+					isAnimated = false;
+				}
 			}
 		}
 	});
 
 	/*CAROUSEL NAVIGATION*/
+
+	var scrollLeft = function(){
+		var slider = '';
+		if(currentSection == 2){
+			slider = '.skills-main-container';
+		}
+		else {
+			slider = '.work-main-container';
+		}
+		$(slider).animate({"left": "0"}, 350, "swing", function(){
+			$(slider + ' .carousel-main-container-li:first').before($(slider + ' .carousel-main-container-li:last'));
+			$(slider).css({'left' : $(slider + ' li').outerWidth()*(-1)});
+			isAnimated = false;
+		});
+	};
+
+	var scrollRight = function(){
+		var slider = '';
+		if(currentSection == 2){
+			slider = '.skills-main-container';
+		}
+		else {
+			slider = '.work-main-container';
+		}
+		$(slider).animate({"left": "-="+$(slider + ' .carousel-main-container-li').outerWidth()}, 350, "swing", function(){
+			$(slider + ' .carousel-main-container-li:last').after($(slider + ' .carousel-main-container-li:first'));
+			$(slider).css({'left' : $(slider + ' .carousel-main-container-li').outerWidth()*(-1)});
+			isAnimated = false;
+		});
+	};
+
 	$('.action-arrow-left').click(function(event){
 		if(!isAnimated){
 			isAnimated = true;
-			var slider = '';
-			if($(this).closest('section').attr('id') === "whois"){
-				slider = '.skills-main-container';
-			}
-			else {
-				slider = '.work-main-container';
-			}
-			$(slider).animate({"left": "0"}, 350, "swing", function(){
-				$(slider + ' .carousel-main-container-li:first').before($(slider + ' .carousel-main-container-li:last'));
-    			$(slider).css({'left' : $(slider + ' li').outerWidth()*(-1)});
-				isAnimated = false;
-			});
+			scrollLeft();
 		}
 		event.preventDefault();
 	});
@@ -336,18 +367,7 @@ $(document).ready(function(event) {
 	$('.action-arrow-right').click(function(event){
 		if(!isAnimated){
 			isAnimated = true;
-			var slider = '';
-			if($(this).closest('section').attr('id') === "whois"){
-				slider = '.skills-main-container';
-			}
-			else {
-				slider = '.work-main-container';
-			}
-			$(slider).animate({"left": "-="+$(slider + ' .carousel-main-container-li').outerWidth()}, 350, "swing", function(){
-				$(slider + ' .carousel-main-container-li:last').after($(slider + ' .carousel-main-container-li:first'));
-    			$(slider).css({'left' : $(slider + ' .carousel-main-container-li').outerWidth()*(-1)});
-				isAnimated = false;
-			});
+			scrollRight();
 		}
 		event.preventDefault();
 	});
