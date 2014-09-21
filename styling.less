@@ -29,8 +29,8 @@
 
 @landscapeMobileMedia: ~'screen and (max-width : 650px) and (orientation : landscape)';
 @landscapeTabletMedia: ~' screen and (min-width : 651px) and (max-width : 1024px) and (orientation : landscape)';
-@mobileMedia: ~'(min-device-width : 320px) and (max-device-width : 568px)';
-@tabletMedia: ~'(min-device-width : 768px) and (max-device-width : 1024px)';
+@mobileMedia: ~'screen and (min-device-width : 320px) and (max-device-width : 650px)';
+@tabletMedia: ~'screen and (min-device-width : 768px) and (max-device-width : 1024px)';
 @handheldLandscape: ~'screen and (max-width : 1024px)';
 @desktopMedia: ~'screen and (min-device-width : 1025px)';
 
@@ -75,14 +75,43 @@ span{
 	line-height: 4vmin;
 }
 
-@media only @landscapeMobileMedia {
+@media only @tabletMedia {
+	span{
+		font-size: 3vmin;
+		line-height: 4.3vmin;
+	}
+}
+
+@media only @mobileMedia and (orientation: portrait){
 	h1{
-		font-size: 5.25vmax;
+		font-size: 6.75vmin;
+		line-height: 7.5vmin;
+	}
+
+	h2{
+		font-size: 3.854vmin;
+		line-height: 1.7vmin;
+	}
+
+	h3{
+		font-size: 1.05vmin;
+		line-height: 1.4vmin;
+	}
+
+	span{
+		font-size: 4.25vmin;
+		line-height: 4.75vmin;
+	}
+}
+
+@media only @mobileMedia and (orientation: landscape){
+	h1{
+		font-size: 5.95vmax;
 		line-height: 7vmax;
 	}
 
 	h2{
-		font-size: 2.854vmax;
+		font-size: 3.354vmax;
 		line-height: 1.7vmax;
 	}
 
@@ -92,8 +121,8 @@ span{
 	}
 
 	span{
-		font-size: 2.2vmax;
-		line-height: 4vmax;
+		font-size: 2.5vmax;
+		line-height: 3.8vmax;
 	}
 }
 
@@ -306,7 +335,7 @@ span{
     align-items: center;
 	position:relative;
 	
-	@media only @desktopMedia and (orientation: portrait), (orientation: portrait){
+	@media not @handheldLandscape, (orientation: portrait){
 		margin-left: 3vw;
 	}
 	@media only @landscapeTabletMedia{
@@ -378,7 +407,7 @@ span{
 	list-style: none outside;
 	.flex-container;
 
-	@media only @desktopMedia and (orientation: portrait), (orientation: portrait){
+	@media not @handheldLandscape, (orientation: portrait){
 		margin-right: 3vw;
 	}
 	@media only @landscapeMobileMedia, @landscapeTabletMedia {
@@ -493,7 +522,7 @@ span{
 	padding: 1vh 0.5vw;
 	overflow: hidden;
 	position:relative;
-	height: 45vh;
+	//height: 45vh;
 }
 
 #work{
@@ -551,23 +580,6 @@ span{
 		left: 44.35%;
 	}
 	@media only @landscapeMobileMedia{
-		left: 41.25%;
-	}
-}
-
-.arrow_top {
-	position: absolute;
-	top: 0;
-	@media not @handheldLandscape, (orientation: portrait){
-		margin-top: 10.5vh;
-		left: 49%;
-	}
-	@media only @landscapeTabletMedia {
-		margin-top: 2vh;
-		left: 44.35%;
-	}
-	@media only @landscapeMobileMedia {
-		margin-top: 2vh;
 		left: 41.25%;
 	}
 }
@@ -648,21 +660,32 @@ span{
 }
 
 .carousel-main-container-li{
-	width: 38.5vw;
 	height: 100%;
-	padding: 0 3vw;
+	
 	text-align: center;
 	-webkit-box-flex: 0;
     -moz-box-flex: 0;
     -webkit-flex: 0 0 auto;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
+
+	@media not @handheldLandscape{
+		width: 38.5vw;
+		padding: 0 3vw;
+	}
+	@media only @handheldLandscape{
+		width: 80%;
+		padding: 0 10%;
+	}
 }
 
 .carousel-main-container-li > img {
 	max-width: 100%;
 	max-height: 75%;
 	margin: 1% 0;
+	@media only @handheldLandscape{
+		max-height: 35%;
+	}
 }
 
 .carousel-main-container-li h2{
@@ -685,14 +708,19 @@ span{
 
 .skills-lists {
 	list-style: none;
-	padding-top: 5vh;
-	padding-left: 0;
+	padding: 2vh 0 5vh 0;
 	margin: -2vh 0 0 -2vw;
-}
-
-.skills-lists li {
-	font-size: 3vmin;
-	margin: 2vh 0 0 2vw;
+	
+	li {
+		font-size: 3vmin;
+		margin: 2vh 2.5vw 0 2.5vw;
+		@media only @landscapeMobileMedia {
+			font-size: 5vmin;
+		}
+		@media only @mobileMedia and (orientation: portrait){
+			font-size: 4.35vmin;
+		}
+	}
 }
 
 @media (orientation:landscape){
