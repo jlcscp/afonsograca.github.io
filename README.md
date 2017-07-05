@@ -10,4 +10,4 @@ The main goal of this project was to develop a website with the most basic tools
 
 Feel free to browse the code and make recommendations, suggestions and critiques. Drop me a line anytime.
 
-Icon font from http://www.https://icomoon.io/
+Icon font from https://icomoon.io/
